@@ -1,0 +1,15 @@
+<launch>
+            <!-- change your file path -->
+    <arg name="file_name" value="/home/kenshiro/test_pcd.pcd"/>
+            <!-- <arg name="file_name" value="/home/kenshiro/imu_test_ws/src/ros_lecture/basic_lecture/src/test_pcd.pcd"/> -->
+            <!-- rate : if publish at 10 Hz, set 0.1 -->
+    <arg name="rate" value="0.1"/>
+    <node pkg="basic_lecture" type="pc0429" name="pc0429"/>
+    <!--<node pkg="pcl_ros" type="pcd_to_pointcloud" name="pcd_to_pointcloud" args="$(arg file_name) $(arg rate)" output="screen">-->
+    <node pkg="basic_lecture" type="pcd_to_pointcloud" name="pcd_to_pointcloud" args="$(arg file_name) $(arg rate)" output="screen">
+        <remap from="cloud_pcd" to="bunny"/>
+        <param name="frame_id" value="map" />
+    </node>
+    <node pkg="rviz" type="rviz" name="rviz"/>
+            <!-- After opening rviz, please open PointCloud2 topic by yourself. -->
+</launch>
