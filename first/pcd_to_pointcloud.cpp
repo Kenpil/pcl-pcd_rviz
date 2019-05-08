@@ -3,6 +3,14 @@
 #include <pcl/point_types.h>
 #include <pcl_conversions/pcl_conversions.h>
 
+/* 
+これが正解
+makeは
+add_executable(pc0429 src/pc0429.cpp) //色々あってpc0429に変更した
+target_link_libraries(pc0429 ${catkin_LIBRARIES})
+で十分
+*/
+
 typedef pcl::PointCloud<pcl::PointXYZRGB> PointCloud;
 
 int main(int argc, char** argv)
