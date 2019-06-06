@@ -1,6 +1,7 @@
 <launch>
-    <node pkg="pcl_tutorials" type="pcd_to_pcl_test" name="pcd_to_pcl_test">
+    <node pkg="pcl_tutorials" type="pcd_to_pcl_test" name="pcd_to_pcl_test" output="screen">
         <param name="pcdfile" value="/home/kenshiro/imu_test_ws/table_scene_lms400.pcd"/>
+        <param name ="downsampling_rate" value="0.1"/>
     </node>
     <node pkg="rviz" type="rviz" name="rviz"/>
 </launch>
